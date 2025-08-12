@@ -28,6 +28,22 @@
         </header>
 
         <main class="game-main">
+            <div class="number-pad">
+                <h3>选择数字</h3>
+                <div class="number-buttons">
+                    <button class="number-btn" data-number="1">1</button>
+                    <button class="number-btn" data-number="2">2</button>
+                    <button class="number-btn" data-number="3">3</button>
+                    <button class="number-btn" data-number="4">4</button>
+                    <button class="number-btn" data-number="5">5</button>
+                    <button class="number-btn" data-number="6">6</button>
+                    <button class="number-btn" data-number="7">7</button>
+                    <button class="number-btn" data-number="8">8</button>
+                    <button class="number-btn" data-number="9">9</button>
+                    <button class="number-btn erase-btn" data-number="0">清除</button>
+                </div>
+            </div>
+            
             <div class="game-board-container">
                 <div id="sudoku-grid" class="sudoku-grid">
                     <!-- 9x9 网格将通过JavaScript生成 -->
@@ -35,22 +51,6 @@
             </div>
             
             <div class="game-sidebar">
-                <div class="number-pad">
-                    <h3>选择数字</h3>
-                    <div class="number-buttons">
-                        <button class="number-btn" data-number="1">1</button>
-                        <button class="number-btn" data-number="2">2</button>
-                        <button class="number-btn" data-number="3">3</button>
-                        <button class="number-btn" data-number="4">4</button>
-                        <button class="number-btn" data-number="5">5</button>
-                        <button class="number-btn" data-number="6">6</button>
-                        <button class="number-btn" data-number="7">7</button>
-                        <button class="number-btn" data-number="8">8</button>
-                        <button class="number-btn" data-number="9">9</button>
-                        <button class="number-btn erase-btn" data-number="0">清除</button>
-                    </div>
-                </div>
-                
                 <div class="game-actions">
                     <button id="new-game-btn" class="action-btn">新游戏</button>
                     <button id="pause-btn" class="action-btn">暂停</button>
@@ -60,13 +60,13 @@
                 </div>
                 
                 <div class="game-stats">
-                    <h3>统计信息</h3>
+                    <h3>统计</h3>
                     <div class="stat-item">
-                        <span>已完成游戏：</span>
+                        <span>完成：</span>
                         <span id="completed-games">0</span>
                     </div>
                     <div class="stat-item">
-                        <span>最佳时间：</span>
+                        <span>最佳：</span>
                         <span id="best-time">--:--</span>
                     </div>
                     <div class="stat-item">
