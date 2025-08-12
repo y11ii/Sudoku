@@ -10,6 +10,12 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     color: #333;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .container {
@@ -303,64 +309,263 @@ body {
     margin-top: 20px;
 }
 
-/* 响应式设计 */
+/* 移动端视窗优化 */
 @media (max-width: 768px) {
-    .game-main {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    body {
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+        overflow-x: hidden;
+        padding-bottom: env(safe-area-inset-bottom);
     }
     
-    .sudoku-grid {
-        width: 350px;
-        height: 350px;
+    html {
+        height: -webkit-fill-available;
     }
     
-    .cell {
-        font-size: 1.2rem;
+    .container {
+        padding: 10px;
+        max-width: 100%;
+    }
+    
+    .game-header {
+        padding: 15px;
+        margin-bottom: 10px;
     }
     
     .game-header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
     }
     
     .game-controls {
-        justify-content: center;
-        text-align: center;
+        justify-content: space-between;
+        gap: 10px;
     }
     
-    .game-sidebar {
-        order: -1;
+    .timer {
+        font-size: 1rem;
     }
     
-    .number-buttons {
-        grid-template-columns: repeat(5, 1fr);
+    .game-main {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
     }
     
-    .erase-btn {
-        grid-column: span 5;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 10px;
+    .game-board-container {
+        padding: 15px;
+        width: 100%;
+        max-width: 320px;
     }
     
     .sudoku-grid {
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
     }
     
     .cell {
         font-size: 1rem;
     }
     
-    .game-header {
+    .game-sidebar {
+        width: 100%;
+        max-width: 320px;
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .number-pad {
+        flex: 1;
+        min-width: 200px;
         padding: 15px;
     }
     
+    .number-pad h3 {
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+    
+    .number-buttons {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 6px;
+    }
+    
+    .number-btn {
+        padding: 8px;
+        font-size: 1rem;
+    }
+    
+    .erase-btn {
+        grid-column: span 5;
+    }
+    
+    .game-actions {
+        flex: 1;
+        min-width: 100px;
+        padding: 15px;
+        gap: 8px;
+    }
+    
+    .action-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .game-stats {
+        width: 100%;
+        padding: 15px;
+        margin-top: 0;
+    }
+    
+    .game-stats h3 {
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+    
+    .stat-item {
+        margin-bottom: 6px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+        height: 100vh;
+        height: -webkit-fill-available;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .game-header {
+        padding: 8px;
+        margin-bottom: 5px;
+        flex-shrink: 0;
+    }
+    
     .game-header h1 {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+    }
+    
+    .game-controls {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 5px;
+        font-size: 0.9rem;
+    }
+    
+    .game-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        overflow: hidden;
+    }
+    
+    .game-board-container {
+        padding: 8px;
+        flex-shrink: 0;
+    }
+    
+    .sudoku-grid {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .cell {
+        font-size: 0.8rem;
+    }
+    
+    .game-sidebar {
+        max-width: 100%;
+        flex: 1;
+        min-height: 0;
+        overflow: hidden;
+    }
+    
+    .number-pad {
+        padding: 8px;
+        min-width: auto;
+    }
+    
+    .number-pad h3 {
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+    }
+    
+    .number-buttons {
+        gap: 3px;
+    }
+    
+    .number-btn {
+        padding: 4px;
+        font-size: 0.8rem;
+        min-height: 28px;
+    }
+    
+    .game-actions {
+        padding: 8px;
+        gap: 4px;
+        min-width: auto;
+    }
+    
+    .action-btn {
+        padding: 4px 8px;
+        font-size: 0.7rem;
+        min-height: 28px;
+    }
+    
+    .game-stats {
+        padding: 8px;
+    }
+    
+    .game-stats h3 {
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+    }
+    
+    .stat-item {
+        margin-bottom: 3px;
+        font-size: 0.75rem;
+        padding: 2px 0;
+    }
+    
+    .modal-content {
+        padding: 15px;
+        width: 95%;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 360px) {
+    .sudoku-grid {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .cell {
+        font-size: 0.75rem;
+    }
+    
+    .game-header h1 {
+        font-size: 1.2rem;
+    }
+    
+    .number-btn {
+        font-size: 0.75rem;
+        min-height: 26px;
+    }
+    
+    .action-btn {
+        font-size: 0.65rem;
+        min-height: 26px;
     }
 }
 
