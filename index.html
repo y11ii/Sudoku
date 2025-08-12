@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数独游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="game-header">
+            <h1>数独游戏</h1>
+            <div class="game-controls">
+                <div class="difficulty-selector">
+                    <label for="difficulty">难度：</label>
+                    <select id="difficulty">
+                        <option value="easy">简单</option>
+                        <option value="medium">中等</option>
+                        <option value="hard">困难</option>
+                        <option value="expert">专家</option>
+                    </select>
+                </div>
+                <div class="timer">
+                    <span>时间：</span>
+                    <span id="timer">00:00</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="game-main">
+            <div class="game-board-container">
+                <div id="sudoku-grid" class="sudoku-grid">
+                    <!-- 9x9 网格将通过JavaScript生成 -->
+                </div>
+            </div>
+            
+            <div class="game-sidebar">
+                <div class="number-pad">
+                    <h3>选择数字</h3>
+                    <div class="number-buttons">
+                        <button class="number-btn" data-number="1">1</button>
+                        <button class="number-btn" data-number="2">2</button>
+                        <button class="number-btn" data-number="3">3</button>
+                        <button class="number-btn" data-number="4">4</button>
+                        <button class="number-btn" data-number="5">5</button>
+                        <button class="number-btn" data-number="6">6</button>
+                        <button class="number-btn" data-number="7">7</button>
+                        <button class="number-btn" data-number="8">8</button>
+                        <button class="number-btn" data-number="9">9</button>
+                        <button class="number-btn erase-btn" data-number="0">清除</button>
+                    </div>
+                </div>
+                
+                <div class="game-actions">
+                    <button id="new-game-btn" class="action-btn">新游戏</button>
+                    <button id="pause-btn" class="action-btn">暂停</button>
+                    <button id="hint-btn" class="action-btn">提示</button>
+                    <button id="undo-btn" class="action-btn">撤销</button>
+                    <button id="redo-btn" class="action-btn">重做</button>
+                </div>
+                
+                <div class="game-stats">
+                    <h3>统计信息</h3>
+                    <div class="stat-item">
+                        <span>已完成游戏：</span>
+                        <span id="completed-games">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>最佳时间：</span>
+                        <span id="best-time">--:--</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>准确率：</span>
+                        <span id="accuracy">100%</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <div id="victory-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>🎉 恭喜完成！</h2>
+                <p>用时：<span id="final-time"></span></p>
+                <p>难度：<span id="final-difficulty"></span></p>
+                <div class="modal-actions">
+                    <button id="play-again-btn" class="action-btn">再玩一局</button>
+                    <button id="close-modal-btn" class="action-btn">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
